@@ -11,13 +11,13 @@ print("  WHAT IS DATA ENGINEERING?")
 print("=" * 60)
 
 print("""
-📊 DATA ENGINEERING = Preparing data for ML
+[DATA] DATA ENGINEERING = Preparing data for ML
 
    Think of it like cooking:
 
-   🍳 RAW INGREDIENTS = Raw data (messy, unstructured)
-   📝 RECIPE = Data processing pipeline
-   🥗 CLEAN DISH = Ready-to-use data for ML
+   [COOK] RAW INGREDIENTS = Raw data (messy, unstructured)
+   [NOTE] RECIPE = Data processing pipeline
+   [OK] CLEAN DISH = Ready-to-use data for ML
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -41,22 +41,22 @@ print("  TYPES OF DATA")
 print("=" * 60)
 
 print("""
-   📁 STRUCTURED DATA (Tables)
-   ├─ Like Excel/CSV files
-   ├─ Rows and columns
-   └─ Easy to process
+   [FOLDER] STRUCTURED DATA (Tables)
+   |- Like Excel/CSV files
+   |- Rows and columns
+   |- Easy to process
    Example: Customer database
 
-   📄 SEMI-STRUCTURED (Flexible format)
-   ├─ JSON, XML
-   ├─ Nested information
-   └─ API responses
+   [FILE] SEMI-STRUCTURED (Flexible format)
+   |- JSON, XML
+   |- Nested information
+   |- API responses
    Example: API responses
 
-   🖼️ UNSTRUCTURED DATA (No fixed format)
-   ├─ Images, audio, video
-   ├─ Text documents
-   └─ Harder to process
+   [IMG] UNSTRUCTURED DATA (No fixed format)
+   |- Images, audio, video
+   |- Text documents
+   |- Harder to process
    Example: PDFs, social media posts
 """)
 
@@ -68,7 +68,7 @@ import pandas as pd
 
 def data_loading():
     """Load and explore data."""
-    print("\n🚀 LOADING DATA")
+    print("\n[RUN] LOADING DATA")
     print("-" * 40)
 
     # Create sample data
@@ -85,10 +85,10 @@ def data_loading():
     print(f"\nShape: {df.shape[0]} rows, {df.shape[1]} columns")
 
     # Basic exploration
-    print("\n📊 Data Info:")
+    print("\n[DATA] Data Info:")
     print(df.info())
 
-    print("\n📈 Statistics:")
+    print("\n[CHART] Statistics:")
     print(df.describe())
 
 data_loading()
@@ -99,7 +99,7 @@ data_loading()
 
 def data_cleaning():
     """Clean messy data."""
-    print("\n🧹 DATA CLEANING")
+    print("\n[CLEAN] DATA CLEANING")
     print("-" * 40)
 
     # Create messy data
@@ -113,7 +113,7 @@ def data_cleaning():
     print("Messy data:")
     print(df)
 
-    print("\n🔧 Cleaning steps:")
+    print("\n[SETUP] Cleaning steps:")
 
     # 1. Handle missing values
     print("1. Missing values:")
@@ -144,7 +144,7 @@ data_cleaning()
 
 def feature_engineering():
     """Create useful features from raw data."""
-    print("\n⚙️ FEATURE ENGINEERING")
+    print("\n[GEAR] FEATURE ENGINEERING")
     print("-" * 40)
 
     data = {
@@ -183,7 +183,7 @@ def feature_engineering():
 
 def train_test_split_demo():
     """Split data for training and testing."""
-    print("\n📊 TRAIN/TEST SPLIT")
+    print("\n[SPLIT] TRAIN/TEST SPLIT")
     print("-" * 40)
 
     # Create data
@@ -204,7 +204,7 @@ def train_test_split_demo():
     print(f"Training: {len(X_train)} samples (80%)")
     print(f"Testing: {len(X_test)} samples (20%)")
 
-    print("\n🎯 Why split?")
+    print("\n[TARGET] Why split?")
     print("   - Training: Learn patterns")
     print("   - Testing: Check if model generalizes")
     print("   - Never test on training data!")
@@ -215,7 +215,7 @@ def train_test_split_demo():
 
 def normalization():
     """Scale features to similar ranges."""
-    print("\n📏 NORMALIZATION / SCALING")
+    print("\n[SCALE] NORMALIZATION / SCALING")
     print("-" * 40)
 
     import numpy as np
@@ -234,7 +234,7 @@ def normalization():
     print(f"Weight: {df['weight_kg'].min()}-{df['weight_kg'].max()}")
     print(f"Age: {df['age'].min()}-{df['age'].max()}")
 
-    print("\n🔧 Min-Max Scaling (0 to 1):")
+    print("\n[SETUP] Min-Max Scaling (0 to 1):")
     for col in df.columns:
         min_val = df[col].min()
         max_val = df[col].max()
@@ -264,17 +264,17 @@ print("\n" + "=" * 60)
 print("  KEY TAKEAWAYS")
 print("=" * 60)
 print("""
-✅ Data Engineering = 80% of ML work!
+[OK] Data Engineering = 80% of ML work!
 
-✅ Data types: Structured, Semi-structured, Unstructured
+[OK] Data types: Structured, Semi-structured, Unstructured
 
-✅ Cleaning: Fix missing, outliers, strings
+[OK] Cleaning: Fix missing, outliers, strings
 
-✅ Feature Engineering: Create useful features from raw data
+[OK] Feature Engineering: Create useful features from raw data
 
-✅ Always split: Training vs Testing (80/20 typical)
+[OK] Always split: Training vs Testing (80/20 typical)
 
-✅ Good data > Good algorithms
+[OK] Good data > Good algorithms
 
 NEXT: Start building ML models!
 """)

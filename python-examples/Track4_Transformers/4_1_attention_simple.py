@@ -11,7 +11,7 @@ print("  WHAT IS ATTENTION?")
 print("=" * 60)
 
 print("""
-🔍 ATTENTION = What to focus on
+[LOOK] ATTENTION = What to focus on
 
 Imagine reading: "The cat sat on the mat"
 
@@ -20,22 +20,22 @@ When processing "sat":
 - You also notice "mat" (the object)
 - You ignore "The" (less important)
 
-🤖 ATTENTION MECHANISM does the SAME thing!
+[BOT] ATTENTION MECHANISM does the SAME thing!
 
    For each word, the model decides:
    - Which other words are important?
    - How much to "pay attention" to each?
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+--------------------------------------------------------------------------------
 
    THE MATH (simplified):
 
-   1️⃣ Compare query with all keys
-   2️⃣ Get scores (similarity)
-   3️⃣ Softmax to get weights (0-1, sum to 1)
-   4️⃣ Weighted sum of values
+   1. Compare query with all keys
+   2. Get scores (similarity)
+   3. Softmax to get weights (0-1, sum to 1)
+   4. Weighted sum of values
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+--------------------------------------------------------------------------------
 """)
 
 # ==============================================================================
@@ -47,11 +47,11 @@ print("  ATTENTION ANALOGY: LIBRARY SEARCH")
 print("=" * 60)
 
 print("""
-   📚 Think of attention like searching a library:
+   [BOOK] Think of attention like searching a library:
 
-   🔑 KEYS = What's in each book (book titles, topics)
-   ❓ QUERY = What you're looking for
-   📖 VALUES = The actual book content
+   [KEY] KEYS = What's in each book (book titles, topics)
+   [?] QUERY = What you're looking for
+   [PAGE] VALUES = The actual book content
 
    When you search:
    1. Your query matches against book titles
@@ -69,7 +69,7 @@ import numpy as np
 
 def simple_attention():
     """Calculate attention between words."""
-    print("\n🔢 SIMPLE ATTENTION CALCULATION")
+    print("\n[NUM] SIMPLE ATTENTION CALCULATION")
     print("-" * 40)
 
     # Sentence: "The cat sat on the mat"
@@ -109,9 +109,9 @@ print("  THE ATTENTION FORMULA")
 print("=" * 60)
 
 print("""
-   📐 THE FORMULA:
+   [CHART] THE FORMULA:
 
-   Attention(Q, K, V) = softmax(QK^T / √d) × V
+   Attention(Q, K, V) = softmax(QK^T / sqrt(d)) * V
 
    Where:
    - Q = Query (what I'm looking for)
@@ -123,7 +123,7 @@ print("""
 
 def attention_formula():
     """Demonstrate the attention formula."""
-    print("\n🧮 ATTENTION FORMULA STEP-BY-STEP")
+    print("\n[CALC] ATTENTION FORMULA STEP-BY-STEP")
 
     # Step 1: Q, K, V matrices (simplified)
     # For 3 words, each with 4-dimensional embedding
@@ -174,26 +174,26 @@ print("  MULTI-HEAD ATTENTION")
 print("=" * 60)
 
 print("""
-   🧠 MULTIPLE HEADS = Multiple perspectives
+   [BRAIN] MULTIPLE HEADS = Multiple perspectives
 
    Instead of one attention, use several in parallel!
    Each head learns different relationships:
 
    Head 1: Subject-verb relationships
-   "cat" → "sat" (cat performs the action)
+   "cat" -> "sat" (cat performs the action)
 
    Head 2: Proximity (words near each other)
-   "the" → "mat" (articles are close to nouns)
+   "the" -> "mat" (articles are close to nouns)
 
    Head 3: Semantic similarity
-   "sat" → "mat" (both are related to sitting)
+   "sat" -> "mat" (both are related to sitting)
 
    Then combine all heads together!
 """)
 
 def multi_head_demo():
     """Simple multi-head attention visualization."""
-    print("\n🎯 MULTI-HEAD ATTENTION EXAMPLE")
+    print("\n[TARGET] MULTI-HEAD ATTENTION EXAMPLE")
     print("-" * 40)
 
     print("""
@@ -224,30 +224,34 @@ print("  TRANSFORMER ATTENTION")
 print("=" * 60)
 
 print("""
-   ⚡ TRANSFORMER = Stacked Attention Layers
+   [FLASH] TRANSFORMER = Stacked Attention Layers
 
-   ┌──────────────────────────────────┐
-   │  Input: "The cat sat on the mat" │
-   └────────────────┬─────────────────┘
-                    ↓
-   ┌──────────────────────────────────┐
-   │  Self-Attention Layer 1          │
-   │  (each word attends to all)       │
-   └────────────────┬─────────────────┘
-                    ↓
-   ┌──────────────────────────────────┐
-   │  Self-Attention Layer 2          │
-   │  (higher-level patterns)          │
-   └────────────────┬─────────────────┘
-                    ↓
-   ┌──────────────────────────────────┐
-   │  Feed-Forward Network            │
-   │  (more processing)               │
-   └────────────────┬─────────────────┘
-                    ↓
-   ┌──────────────────────────────────┐
-   │  Output: Rich representations    │
-   └──────────────────────────────────┘
+   +----------------------------------+
+   |  Input: "The cat sat on the mat" |
+   +----------------+-----------------+
+                    |
+                    v
+   +----------------------------------+
+   |  Self-Attention Layer 1          |
+   |  (each word attends to all)      |
+   +----------------+-----------------+
+                    |
+                    v
+   +----------------------------------+
+   |  Self-Attention Layer 2          |
+   |  (higher-level patterns)         |
+   +----------------+-----------------+
+                    |
+                    v
+   +----------------------------------+
+   |  Feed-Forward Network            |
+   |  (more processing)               |
+   +----------------+-----------------+
+                    |
+                    v
+   +----------------------------------+
+   |  Output: Rich representations    |
+   +----------------------------------+
 
    Key Innovation: All words can "talk" to all other words!
    (No sequential processing like RNNs)
@@ -261,19 +265,19 @@ print("\n" + "=" * 60)
 print("  KEY TAKEAWAYS")
 print("=" * 60)
 print("""
-✅ Attention = What to focus on
+[OK] Attention = What to focus on
 
-✅ Query, Key, Value = Search system for words
+[OK] Query, Key, Value = Search system for words
 
-✅ Attention(Q,K,V) = How much to attend × what to retrieve
+[OK] Attention(Q,K,V) = How much to attend * what to retrieve
 
-✅ Softmax = Turn scores to probabilities (0-1)
+[OK] Softmax = Turn scores to probabilities (0-1)
 
-✅ Multi-Head = Multiple perspectives on relationships
+[OK] Multi-Head = Multiple perspectives on relationships
 
-✅ Transformer = Stack many attention layers
+[OK] Transformer = Stack many attention layers
 
-✅ Why important: Foundation of GPT, BERT, Claude, etc.
+[OK] Why important: Foundation of GPT, BERT, Claude, etc.
 
 NEXT: Build a transformer from scratch!
 """)

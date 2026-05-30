@@ -11,19 +11,19 @@ print("  WHAT IS MACHINE LEARNING?")
 print("=" * 60)
 
 print("""
-🤔 TRADITIONAL PROGRAMMING:
-   You write rules → Computer follows rules → Gets answer
+[?] TRADITIONAL PROGRAMMING:
+   You write rules -> Computer follows rules -> Gets answer
 
    Example: Detect spam
    IF "FREE" in email AND "CLICK" in email THEN spam
    IF "meeting" in email AND "tomorrow" in email THEN not spam
 
-🤖 MACHINE LEARNING:
-   You give data + answers → Computer learns rules → Predicts new answers
+[BOT] MACHINE LEARNING:
+   You give data + answers -> Computer learns rules -> Predicts new answers
 
    Example: Detect spam
-   Show 10,000 spam emails → Model learns patterns
-   Show new email → Model predicts "spam" or "not spam"
+   Show 10,000 spam emails -> Model learns patterns
+   Show new email -> Model predicts "spam" or "not spam"
 """)
 
 # ==============================================================================
@@ -35,26 +35,26 @@ print("  THE ML RECIPE (How ML Works)")
 print("=" * 60)
 
 print("""
-   📋 ML Has 4 Ingredients:
+   [LIST] ML Has 4 Ingredients:
 
-   1️⃣ DATA
+   1. DATA
       - Features (inputs): what you know
       - Labels (outputs): what you want to predict
 
-   2️⃣ MODEL
+   2. MODEL
       - A function that transforms inputs to outputs
       - Like a math formula: y = mx + b
 
-   3️⃣ LOSS FUNCTION
+   3. LOSS FUNCTION
       - Measures how wrong predictions are
       - Goal: Minimize this!
 
-   4️⃣ OPTIMIZER
+   4. OPTIMIZER
       - Adjusts model to reduce loss
       - Like a teacher grading and guiding improvement
 
-   🔄 THE LOOP:
-   Data → Model → Predictions → Loss → Update Model → Repeat 1000x
+   [LOOP] THE LOOP:
+   Data -> Model -> Predictions -> Loss -> Update Model -> Repeat 1000x
 """)
 
 # ==============================================================================
@@ -66,16 +66,16 @@ print("  TYPES OF MACHINE LEARNING")
 print("=" * 60)
 
 print("""
-   1️⃣ SUPERVISED LEARNING (Learn with examples)
-      ├─ Classification: Predict categories (spam/not spam)
-      └─ Regression: Predict numbers (house price)
+   1. SUPERVISED LEARNING (Learn with examples)
+      |- Classification: Predict categories (spam/not spam)
+      |- Regression: Predict numbers (house price)
 
-   2️⃣ UNSUPERVISED LEARNING (Find patterns)
-      ├─ Clustering: Group similar items
-      └─ Dimensionality Reduction: Simplify data
+   2. UNSUPERVISED LEARNING (Find patterns)
+      |- Clustering: Group similar items
+      |- Dimensionality Reduction: Simplify data
 
-   3️⃣ REINFORCEMENT LEARNING (Learn from experience)
-      └─ Agent learns by trial and reward
+   3. REINFORCEMENT LEARNING (Learn from experience)
+      |- Agent learns by trial and reward
 """)
 
 # ==============================================================================
@@ -90,7 +90,7 @@ from sklearn.datasets import make_blobs
 import numpy as np
 
 # Create simple data: 2 groups of points
-print("\n1️⃣ Creating Data:")
+print("\n1. Creating Data:")
 X, y = make_blobs(n_samples=100, centers=2, random_state=42)
 print(f"   Data points: {len(X)}")
 print(f"   Features per point: {X.shape[1]}")
@@ -102,7 +102,7 @@ print(f"\n   First 5 data points:")
 for i in range(5):
     print(f"   Point {i+1}: X={X[i]}, Label={y[i]}")
 
-print("\n2️⃣ Training a Classifier:")
+print("\n2. Training a Classifier:")
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
@@ -122,7 +122,7 @@ accuracy = accuracy_score(y_test, predictions)
 print(f"   Training samples: {len(X_train)}")
 print(f"   Test accuracy: {accuracy:.1%}")
 
-print("\n3️⃣ Making New Predictions:")
+print("\n3. Making New Predictions:")
 new_point = np.array([[0.5, 0.5]])
 prediction = model.predict(new_point)
 print(f"   New point: {new_point}")
@@ -136,7 +136,7 @@ print("\n" + "=" * 60)
 print("  SUPERVISED LEARNING - Regression")
 print("=" * 60)
 
-print("\n1️⃣ Regression: Predict Numbers")
+print("\n1. Regression: Predict Numbers")
 print("   Example: Predict house price from size")
 
 from sklearn.linear_model import LinearRegression
@@ -176,7 +176,7 @@ print("\n" + "=" * 60)
 print("  UNSUPERVISED LEARNING - Clustering")
 print("=" * 60)
 
-print("\n1️⃣ Clustering: Group Similar Items")
+print("\n1. Clustering: Group Similar Items")
 print("   Example: Group customers by behavior")
 
 from sklearn.cluster import KMeans
@@ -208,16 +208,16 @@ print("\n" + "=" * 60)
 print("  KEY TAKEAWAYS")
 print("=" * 60)
 print("""
-✅ ML learns patterns from data, not rules from programmers
+[OK] ML learns patterns from data, not rules from programmers
 
-✅ Supervised = Learning with labeled examples
+[OK] Supervised = Learning with labeled examples
    - Classification: predict category
    - Regression: predict number
 
-✅ Unsupervised = Finding patterns in unlabeled data
+[OK] Unsupervised = Finding patterns in unlabeled data
    - Clustering: group similar items
 
-✅ The ML Loop: Data → Model → Loss → Update → Repeat
+[OK] The ML Loop: Data -> Model -> Loss -> Update -> Repeat
 
 NEXT: Learn specific algorithms (Linear Regression, Decision Trees, etc.)
 """)

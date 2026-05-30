@@ -11,13 +11,13 @@ print("  WHAT IS A NEURAL NETWORK?")
 print("=" * 60)
 
 print("""
-🧠 THE HUMAN BRAIN ANALOGY:
+[BRAIN] THE HUMAN BRAIN ANALOGY:
 
    Your brain has BILLIONS of tiny cells called neurons
    Each neuron receives signals, processes them, and sends output
    Neurons are connected in a network
 
-🤖 ARTIFICIAL NEURAL NETWORK:
+[BOT] ARTIFICIAL NEURAL NETWORK:
 
    We mimic this with math!
    - Input neurons: receive data
@@ -39,15 +39,15 @@ print("  PART 1: A SINGLE NEURON")
 print("=" * 60)
 
 print("""
-   🔢 A NEURON DOES 3 THINGS:
+   [NUM] A NEURON DOES 3 THINGS:
 
-   1️⃣ WEIGHT: Multiply input by weight
-      y = x × w
+   1. WEIGHT: Multiply input by weight
+      y = x * w
 
-   2️⃣ ADD: Sum up all weighted inputs
-      y = x₁w₁ + x₂w₂ + x₃w₃ + ...
+   2. ADD: Sum up all weighted inputs
+      y = x1*w1 + x2*w2 + x3*w3 + ...
 
-   3️⃣ ACTIVATION: Decide if output "fires"
+   3. ACTIVATION: Decide if output "fires"
       if sum > threshold: fire! (output = 1)
       else: don't fire (output = 0)
 """)
@@ -75,7 +75,7 @@ def simple_neuron():
     print(f"   Weighted sum: {weighted_sum}")
     print(f"   After ReLU activation: {output}")
 
-print("\n🧮 Let's run a simple neuron:")
+print("\n[CALC] Let's run a simple neuron:")
 simple_neuron()
 
 # ==============================================================================
@@ -87,9 +87,9 @@ print("  PART 2: LAYERS OF NEURONS")
 print("=" * 60)
 
 print("""
-   📊 A LAYER = Multiple neurons working together
+   [CHART] A LAYER = Multiple neurons working together
 
-   Input (1 value) → Layer of 4 neurons → Output (4 values)
+   Input (1 value) -> Layer of 4 neurons -> Output (4 values)
 
    Example: Processing an image
    - Input: pixel value (0.5)
@@ -123,7 +123,7 @@ def layer_forward():
     print(f"   Weights shape: {weights.shape} (4 neurons, 3 inputs each)")
     print(f"   Layer outputs: {outputs.round(4)}")
 
-print("\n🚀 Forward pass through a layer:")
+print("\n[RUN] Forward pass through a layer:")
 layer_forward()
 
 # ==============================================================================
@@ -135,27 +135,30 @@ print("  PART 3: COMPLETE NEURAL NETWORK")
 print("=" * 60)
 
 print("""
-   🏗️  FULL NETWORK STRUCTURE:
+   [BUILD] FULL NETWORK STRUCTURE:
 
-   ┌─────────────────────────────────────┐
-   │  INPUT LAYER (3 neurons)            │
-   │  [x₁] [x₂] [x₃]                    │
-   └────────────┬──────────────────────┘
-                ↓
-   ┌─────────────────────────────────────┐
-   │  HIDDEN LAYER 1 (4 neurons)         │
-   │  [h₁] [h₂] [h₃] [h₄]               │
-   └────────────┬──────────────────────┘
-                ↓
-   ┌─────────────────────────────────────┐
-   │  HIDDEN LAYER 2 (4 neurons)         │
-   │  [h₅] [h₆] [h₇] [h₈]               │
-   └────────────┬──────────────────────┘
-                ↓
-   ┌─────────────────────────────────────┐
-   │  OUTPUT LAYER (1 neuron)            │
-   │  [ŷ]                                 │
-   └─────────────────────────────────────┘
+   +-------------------------------------+
+   |  INPUT LAYER (3 neurons)            |
+   |  [x1] [x2] [x3]                     |
+   +-------------+----------------------+
+                 |
+                 v
+   +-------------------------------------+
+   |  HIDDEN LAYER 1 (4 neurons)          |
+   |  [h1] [h2] [h3] [h4]                |
+   +-------------+----------------------+
+                 |
+                 v
+   +-------------------------------------+
+   |  HIDDEN LAYER 2 (4 neurons)          |
+   |  [h5] [h6] [h7] [h8]                |
+   +-------------+----------------------+
+                 |
+                 v
+   +-------------------------------------+
+   |  OUTPUT LAYER (1 neuron)             |
+   |  [y_hat]                             |
+   +-------------------------------------+
 """)
 
 def simple_network():
@@ -195,7 +198,7 @@ def simple_network():
     y = np.dot(h2, W3) + b3
     print(f"   Final output: {y.round(4)}")
 
-print("\n🚀 Full network forward pass:")
+print("\n[RUN] Full network forward pass:")
 simple_network()
 
 # ==============================================================================
@@ -207,27 +210,27 @@ print("  PART 4: HOW NETWORKS LEARN")
 print("=" * 60)
 
 print("""
-   📚 TRAINING = "Guess, Check, Improve" Loop
+   [BOOK] TRAINING = "Guess, Check, Improve" Loop
 
-   1️⃣ FORWARD: Make a prediction
-      Input → Layer 1 → Layer 2 → Output
+   1. FORWARD: Make a prediction
+      Input -> Layer 1 -> Layer 2 -> Output
 
-   2️⃣ COMPARE: How wrong was I?
-      Loss = (prediction - actual)²
+   2. COMPARE: How wrong was I?
+      Loss = (prediction - actual)^2
 
-   3️⃣ BACKWARD: How should I adjust?
+   3. BACKWARD: How should I adjust?
       Calculate gradients (which direction to move)
 
-   4️⃣ UPDATE: Make small adjustments
-      new_weight = old_weight - learning_rate × gradient
+   4. UPDATE: Make small adjustments
+      new_weight = old_weight - learning_rate * gradient
 
-   5️⃣ REPEAT: Do this thousands of times
-      → Weights get better → Predictions get better!
+   5. REPEAT: Do this thousands of times
+      -> Weights get better -> Predictions get better!
 """)
 
 def gradient_descent_demo():
     """Simple gradient descent demonstration."""
-    print("\n🎯 Goal: Find the minimum of y = (x-3)²")
+    print("\n[TARGET] Goal: Find the minimum of y = (x-3)^2")
 
     # Start with random x
     x = 0.0
@@ -251,7 +254,7 @@ def gradient_descent_demo():
 
     print(f"\n   Final: x = {x:.4f} (close to target x=3!)")
 
-print("\n🔍 Watch gradient descent find the minimum:")
+print("\n[LOOK] Watch gradient descent find the minimum:")
 gradient_descent_demo()
 
 # ==============================================================================
@@ -262,20 +265,20 @@ print("\n" + "=" * 60)
 print("  KEY TAKEAWAYS")
 print("=" * 60)
 print("""
-✅ Neural Network = Layers of artificial neurons
+[OK] Neural Network = Layers of artificial neurons
 
-✅ Forward Pass: Input → Process → Output
+[OK] Forward Pass: Input -> Process -> Output
 
-✅ Activation: ReLU turns negatives to 0 (keeps positives)
+[OK] Activation: ReLU turns negatives to 0 (keeps positives)
 
-✅ Training Loop:
+[OK] Training Loop:
    1. Forward pass (make prediction)
    2. Calculate loss (how wrong)
    3. Backward pass (find gradients)
    4. Update weights (reduce loss)
    5. Repeat!
 
-✅ More layers = Can learn more complex patterns
+[OK] More layers = Can learn more complex patterns
 
 NEXT: Build this in PyTorch (real neural network library)!
 """)

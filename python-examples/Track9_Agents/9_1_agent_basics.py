@@ -11,33 +11,33 @@ print("  WHAT ARE AI AGENTS?")
 print("=" * 60)
 
 print("""
-🤖 AI AGENT = LLM + Memory + Tools + Actions
+[BOT] AI AGENT = LLM + Memory + Tools + Actions
 
    Think of it like a helpful robot assistant:
 
-   🤖 Robot Brain (LLM)
-   └─ Makes decisions, understands requests
+   [BOT] Robot Brain (LLM)
+   |- Makes decisions, understands requests
 
-   📚 Memory
-   └─ Remembers past interactions
+   [BOOK] Memory
+   |- Remembers past interactions
 
-   🔧 Tools (can use)
-   └─ Search the web, run code, read files
+   [TOOL] Tools (can use)
+   |- Search the web, run code, read files
 
-   🎯 Actions
-   └─ Actually does things (books flight, sends email)
+   [TARGET] Actions
+   |- Actually does things (books flight, sends email)
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+--------------------------------------------------------------------------------
 
    AGENT vs SIMPLE CHATBOT:
 
-   🤖 Simple Chatbot:
+   [BOT] Simple Chatbot:
    "What's the weather?"
-   → "It's sunny today."
+   -> "It's sunny today."
 
-   🤖 Agent:
+   [BOT] Agent:
    "Book me a flight to NYC next Friday"
-   → Searches flights → Compares prices → Books ticket
+   -> Searches flights -> Compares prices -> Books ticket
 """)
 
 # ==============================================================================
@@ -49,34 +49,38 @@ print("  THE AGENT LOOP")
 print("=" * 60)
 
 print("""
-   🔄 REACT LOOP (Reason + Act + Observe):
+   [LOOP] REACT LOOP (Reason + Act + Observe):
 
-   ┌─────────────────────────────────────────┐
-   │  1. OBSERVE                             │
-   │     What does the user want?            │
-   └──────────────────┬──────────────────────┘
-                      ↓
-   ┌─────────────────────────────────────────┐
-   │  2. REASON                              │
-   │     Think: What should I do first?      │
-   └──────────────────┬──────────────────────┘
-                      ↓
-   ┌─────────────────────────────────────────┐
-   │  3. ACT                                 │
-   │     Use a tool or give response         │
-   └──────────────────┬──────────────────────┘
-                      ↓
-   ┌─────────────────────────────────────────┐
-   │  4. OBSERVE RESULT                      │
-   │     What did the tool return?           │
-   └──────────────────┬──────────────────────┘
-                      ↓
+   +-----------------------------------------+
+   |  1. OBSERVE                             |
+   |     What does the user want?            |
+   +------------------+----------------------+
+                       |
+                       v
+   +-----------------------------------------+
+   |  2. REASON                              |
+   |     Think: What should I do first?       |
+   +------------------+----------------------+
+                       |
+                       v
+   +-----------------------------------------+
+   |  3. ACT                                 |
+   |     Use a tool or give response          |
+   +------------------+----------------------+
+                       |
+                       v
+   +-----------------------------------------+
+   |  4. OBSERVE RESULT                      |
+   |     What did the tool return?           |
+   +------------------+----------------------+
+                       |
+                       v
                     REPEAT until done!
 """)
 
 def agent_loop_demo():
     """Demonstrate the agent reasoning loop."""
-    print("\n🔄 AGENT LOOP EXAMPLE")
+    print("\n[LOOP] AGENT LOOP EXAMPLE")
     print("-" * 40)
 
     task = "What is the weather in Tokyo and should I bring an umbrella?"
@@ -94,8 +98,8 @@ def agent_loop_demo():
     ]
 
     for i, (step, thought) in enumerate(steps, 1):
-        emoji = {"OBSERVE": "👁️", "REASON": "🤔", "ACT": "🔧", "DONE": "✅"}.get(step, "➡️")
-        print(f"   Step {i}: {emoji} {step}")
+        tag = {"OBSERVE": "[EYE]", "REASON": "[?]", "ACT": "[TOOL]", "DONE": "[OK]"}.get(step, "[->]")
+        print(f"   Step {i}: {tag} {step}")
         print(f"      {thought}\n")
 
 agent_loop_demo()
@@ -109,31 +113,31 @@ print("  TOOLS (What Agents Can Use)")
 print("=" * 60)
 
 print("""
-   🔧 TOOLS extend what agents can do:
+   [TOOL] TOOLS extend what agents can do:
 
-   🌐 SEARCH
-   │ Browse the web, find information
-   │ Example: "Search for iPhone 15 prices"
-   │
-   💻 CODE
-   │ Run Python, execute calculations
-   │ Example: "Calculate compound interest"
-   │
-   📁 FILES
-   │ Read/write documents, PDFs
-   │ Example: "Summarize this PDF"
-   │
-   📧 EMAIL
-   │ Send messages, check inbox
-   │ Example: "Email the report to John"
-   │
-   📊 APIs
-   │ Call external services
-   │ Example: "Check my bank balance"
-   │
-   🔍 SEARCH (Vector)
-   │ Query document database
-   │ Example: "Find our return policy"
+   [WEB] SEARCH
+   | Browse the web, find information
+   | Example: "Search for iPhone 15 prices"
+   |
+   [CODE] CODE
+   | Run Python, execute calculations
+   | Example: "Calculate compound interest"
+   |
+   [FOLDER] FILES
+   | Read/write documents, PDFs
+   | Example: "Summarize this PDF"
+   |
+   [MAIL] EMAIL
+   | Send messages, check inbox
+   | Example: "Email the report to John"
+   |
+   [CHART] APIs
+   | Call external services
+   | Example: "Check my bank balance"
+   |
+   [LOOK] SEARCH (Vector)
+   | Query document database
+   | Example: "Find our return policy"
 """)
 
 # ==============================================================================
@@ -146,7 +150,7 @@ print("=" * 60)
 
 def simple_agent():
     """Simple agent with tools."""
-    print("\n🚀 SIMPLE AGENT CODE")
+    print("\n[RUN] SIMPLE AGENT CODE")
     print("-" * 40)
 
     # Define tools
@@ -164,7 +168,7 @@ def simple_agent():
     }
 
     def agent(query, max_steps=5):
-        print(f"\n📝 Task: {query}\n")
+        print(f"\n[NOTE] Task: {query}\n")
 
         # Simple rule-based decision
         if "calculate" in query.lower() or "+" in query or "-" in query:
@@ -177,7 +181,7 @@ def simple_agent():
             # Extract city
             city = "Tokyo"  # Simplified
             result = tools["weather"](city)
-            return f"{result}. Recommendation: Bring an umbrella! ☂️"
+            return f"{result}. Recommendation: Bring an umbrella!"
 
         elif "search" in query.lower() or "find" in query.lower():
             result = tools["search"](query)
@@ -208,26 +212,26 @@ print("  AGENT MEMORY")
 print("=" * 60)
 
 print("""
-   🧠 AGENTS HAVE MULTIPLE MEMORY TYPES:
+   [BRAIN] AGENTS HAVE MULTIPLE MEMORY TYPES:
 
-   ┌─────────────────────────────────────────┐
-   │  SHORT-TERM (Context Window)            │
-   │  - Current conversation                 │
-   │  - What's happening right now           │
-   │  - Like: RAM                            │
-   └─────────────────────────────────────────┘
+   +-----------------------------------------+
+   |  SHORT-TERM (Context Window)            |
+   |  - Current conversation                 |
+   |  - What's happening right now           |
+   |  - Like: RAM                           |
+   +-----------------------------------------+
 
-   ┌─────────────────────────────────────────┐
-   │  LONG-TERM (Vector Database)            │
-   │  - Past conversations                   │
-   │  - Retrieved when relevant              │
-   │  - Like: Hard drive                     │
-   └─────────────────────────────────────────┘
+   +-----------------------------------------+
+   |  LONG-TERM (Vector Database)            |
+   |  - Past conversations                   |
+   |  - Retrieved when relevant             |
+   |  - Like: Hard drive                     |
+   +-----------------------------------------+
 
    Example:
    User: "Book a flight to Paris"
-   Agent: Searches memories → Remembers user's preferences
-          → Knows they prefer window seats + business class
+   Agent: Searches memories -> Remembers user's preferences
+          -> Knows they prefer window seats + business class
 """)
 
 # ==============================================================================
@@ -239,35 +243,35 @@ print("  POPULAR AGENT FRAMEWORKS")
 print("=" * 60)
 
 print("""
-   🛠️  FRAMEWORKS = Pre-built tools for agents
+   [TOOL] FRAMEWORKS = Pre-built tools for agents
 
-   1️⃣ LANGGRAPH (LangChain)
-   ─────────────────────────
+   1. LANGGRAPH (LangChain)
+   -------------------------
    - Build complex workflows
    - Cycles and branches
    - State management
    - Production-ready
 
-   2️⃣ CREWAI
-   ───────────
+   2. CREWAI
+   ----------
    - Multi-agent systems
    - Assign roles (Researcher, Writer, etc.)
    - Collaborative tasks
 
-   3️⃣ OPENAI AGENTS SDK
-   ─────────────────────
+   3. OPENAI AGENTS SDK
+   ---------------------
    - Simple, elegant
    - Built by OpenAI
    - Easy handoffs between agents
 
-   4️⃣ AUTOGEN (Microsoft)
-   ───────────────────────
+   4. AUTOGEN (Microsoft)
+   ----------------------
    - Conversation-based
    - Good for coding agents
    - Multi-agent chat
 
-   5️⃣ SMOLAGENTS (HuggingFace)
-   ─────────────────────────────
+   5. SMOLAGENTS (HuggingFace)
+   -----------------------------
    - Lightweight, minimal
    - Open source
    - Code agents
@@ -279,7 +283,7 @@ print("""
 
 def react_agent_example():
     """ReAct pattern: Reason + Act."""
-    print("\n🎯 REACT AGENT EXAMPLE")
+    print("\n[TARGET] REACT AGENT EXAMPLE")
     print("-" * 40)
 
     print("""
@@ -316,17 +320,17 @@ print("\n" + "=" * 60)
 print("  KEY TAKEAWAYS")
 print("=" * 60)
 print("""
-✅ AI Agent = LLM + Tools + Memory + Actions
+[OK] AI Agent = LLM + Tools + Memory + Actions
 
-✅ Agent Loop: Observe → Reason → Act → Observe → Repeat
+[OK] Agent Loop: Observe -> Reason -> Act -> Observe -> Repeat
 
-✅ Tools extend capabilities (search, code, files, APIs)
+[OK] Tools extend capabilities (search, code, files, APIs)
 
-✅ Memory: Short-term (context) + Long-term (vector store)
+[OK] Memory: Short-term (context) + Long-term (vector store)
 
-✅ Popular frameworks: LangGraph, CrewAI, AutoGen
+[OK] Popular frameworks: LangGraph, CrewAI, AutoGen
 
-✅ Agents can: Browse, code, calculate, email, search docs
+[OK] Agents can: Browse, code, calculate, email, search docs
 
 NEXT: Build an agent with LangGraph!
 """)

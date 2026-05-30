@@ -11,17 +11,17 @@ print("  WHAT ARE LARGE LANGUAGE MODELS?")
 print("=" * 60)
 
 print("""
-🤖 LLM = Large Language Model
+[BOT] LLM = Large Language Model
 
    Think of it like this:
 
-   📚 You've read MILLIONS of books, articles, websites
-   📝 You've learned patterns: grammar, facts, reasoning
-   💬 I can now CHAT with you using what I learned
+   [BOOK] You've read MILLIONS of books, articles, websites
+   [NOTE] You've learned patterns: grammar, facts, reasoning
+   [CHAT] I can now CHAT with you using what I learned
 
    That's what an LLM does!
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+--------------------------------------------------------------------------------
 
    EXAMPLES OF LLMs:
    - GPT-4, GPT-4o (OpenAI)
@@ -30,14 +30,14 @@ print("""
    - Llama (Meta)
    - Mistral (Mistral AI)
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+--------------------------------------------------------------------------------
 
    WHAT CAN THEY DO?
-   ✓ Write essays, emails, code
-   ✓ Answer questions
-   ✓ Translate languages
-   ✓ Summarize documents
-   ✓ Reason through problems
+   [OK] Write essays, emails, code
+   [OK] Answer questions
+   [OK] Translate languages
+   [OK] Summarize documents
+   [OK] Reason through problems
 """)
 
 # ==============================================================================
@@ -49,7 +49,7 @@ print("  HOW LLMs LEARN (Pre-training)")
 print("=" * 60)
 
 print("""
-   📚 STEP 1: READ EVERYTHING ON THE INTERNET
+   [BOOK] STEP 1: READ EVERYTHING ON THE INTERNET
 
    The model reads:
    - Billions of web pages
@@ -60,7 +60,7 @@ print("""
 
    That's like reading 100,000 lifetimes of reading!
 
-   🧠 STEP 2: LEARN PATTERNS
+   [BRAIN] STEP 2: LEARN PATTERNS
 
    After reading so much, the model learns:
    - Grammar rules (how to form sentences)
@@ -75,7 +75,7 @@ print("""
 
 def word_prediction_game():
     """Demonstrate next-word prediction."""
-    print("\n🎯 THE WORD PREDICTION GAME")
+    print("\n[TARGET] THE WORD PREDICTION GAME")
     print("-" * 40)
 
     sentences = [
@@ -88,7 +88,7 @@ def word_prediction_game():
     print("Can you predict the next word?\n")
     for start, answer in sentences:
         print(f"   '{start} ___'")
-        print(f"   → '{answer}' ✓\n")
+        print(f"   -> '{answer}' [OK]\n")
 
 word_prediction_game()
 
@@ -101,7 +101,7 @@ print("  TOKENIZATION (How LLMs Read)")
 print("=" * 60)
 
 print("""
-   🔤 LLMs don't read letters or words
+   [ABC] LLMs don't read letters or words
    They read TOKENS
 
    Token = A piece of a word (or whole word)
@@ -109,19 +109,19 @@ print("""
    Example:
    "Hello, world!" might become:
 
-   "Hello" → token 1234
-   ","    → token 56
-   "world" → token 7890
-   "!"    → token 12
+   "Hello" -> token 1234
+   ","    -> token 56
+   "world" -> token 7890
+   "!"    -> token 12
 
    Why? Computer memory! Tokens are numbers.
-   1 token ≈ 4 characters of English text
-   ~750 words ≈ 1000 tokens
+   1 token ~ 4 characters of English text
+   ~750 words ~ 1000 tokens
 """)
 
 def tokenization_demo():
     """Show how text becomes tokens."""
-    print("\n🔢 TOKENIZATION EXAMPLE")
+    print("\n[NUM] TOKENIZATION EXAMPLE")
 
     # Simplified tokenization
     text = "Hello, how are you?"
@@ -144,7 +144,7 @@ def tokenization_demo():
     for text in examples:
         word_count = len(text.split())
         token_est = word_count + int(len(text) * 0.1)
-        print(f"   '{text}' → ~{token_est} tokens")
+        print(f"   '{text}' -> ~{token_est} tokens")
 
 tokenization_demo()
 
@@ -157,7 +157,7 @@ print("  CONTEXT WINDOW")
 print("=" * 60)
 
 print("""
-   📏 CONTEXT WINDOW = How much text the model can see at once
+   [RULER] CONTEXT WINDOW = How much text the model can see at once
 
    Think of it like a "working memory"
 
@@ -167,7 +167,7 @@ print("""
    - Claude 3.5: 200,000 tokens (long book)
    - Gemini 1.5: 1,000,000 tokens (entire codebase!)
 
-   ⚠️ LIMITATION: Old text gets "forgotten"
+   [WARN] LIMITATION: Old text gets "forgotten"
    If window is 4,000 tokens and you chat for hours,
    early messages might be forgotten
 """)
@@ -181,10 +181,10 @@ print("  TEMPERATURE (How Creative?)")
 print("=" * 60)
 
 print("""
-   🌡️ TEMPERATURE = How random/creative the output is
+   [TEMP] TEMPERATURE = How random/creative the output is
 
    Low temperature (0.1-0.3):
-   - Same input → almost same output
+   - Same input -> almost same output
    - Good for: facts, math, precise answers
    - Like a textbook
 
@@ -201,21 +201,21 @@ print("""
 
 def temperature_demo():
     """Visualize temperature effect."""
-    print("\n🌡️ TEMPERATURE EFFECT")
+    print("\n[TEMP] TEMPERATURE EFFECT")
 
     print("""
    Question: "What is the color of the sky?"
 
    Temperature 0.1 (Deterministic):
-   → "The sky is blue."
+   -> "The sky is blue."
    (Always the same factual answer)
 
    Temperature 0.5 (Balanced):
-   → "The sky appears blue during clear days."
+   -> "The sky appears blue during clear days."
    (Factual with slight variation)
 
    Temperature 1.0 (Creative):
-   → "The sky is a vast blue canvas painted by nature,
+   -> "The sky is a vast blue canvas painted by nature,
       sometimes streaked with clouds like brushstrokes."
    (More poetic and varied)
     """)
@@ -231,8 +231,8 @@ print("  3 WAYS TO MAKE LLMs MORE USEFUL")
 print("=" * 60)
 
 print("""
-   1️⃣ PROMPTING (Cheapest, Fastest)
-   ────────────────────────────────
+   1. PROMPTING (Cheapest, Fastest)
+   --------------------------------
    Write better instructions in the prompt
 
    Example:
@@ -240,10 +240,10 @@ print("""
 
    Best for: Simple customizations
 
-   ─────────────────────────────────────────
+   ----------------------------------------
 
-   2️⃣ RAG - Retrieval Augmented Generation
-   ──────────────────────────────────────────
+   2. RAG - Retrieval Augmented Generation
+   -----------------------------------------
    Give the model documents to use as reference
 
    Example:
@@ -252,15 +252,15 @@ print("""
 
    Best for: Adding specific knowledge (like your docs)
 
-   ─────────────────────────────────────────
+   ----------------------------------------
 
-   3️⃣ FINE-TUNING (Most Expensive, Permanent)
-   ───────────────────────────────────────────
+   3. FINE-TUNING (Most Expensive, Permanent)
+   ------------------------------------------
    Train the model on custom data
 
    Example:
    Fine-tune on 10,000 customer service chats
-   → Model learns your brand voice permanently
+   -> Model learns your brand voice permanently
 
    Best for: Changing how the model speaks/responds
 """)
@@ -273,17 +273,17 @@ print("\n" + "=" * 60)
 print("  KEY TAKEAWAYS")
 print("=" * 60)
 print("""
-✅ LLM = Trained on massive text data
+[OK] LLM = Trained on massive text data
 
-✅ Learns by predicting next word (self-supervised)
+[OK] Learns by predicting next word (self-supervised)
 
-✅ Tokens = Pieces of text (model reads in numbers)
+[OK] Tokens = Pieces of text (model reads in numbers)
 
-✅ Context window = How much it can "see" at once
+[OK] Context window = How much it can "see" at once
 
-✅ Temperature = How creative vs precise
+[OK] Temperature = How creative vs precise
 
-✅ 3 ways to customize:
+[OK] 3 ways to customize:
    - Prompting (instructions)
    - RAG (documents)
    - Fine-tuning (training)

@@ -11,22 +11,22 @@ print("  WHAT IS RAG?")
 print("=" * 60)
 
 print("""
-🔍 RAG = Retrieval Augmented Generation
+[LOOK] RAG = Retrieval Augmented Generation
 
    Think of it like open-book vs closed-book exams:
 
-   ❌ CLOSED-BOOK (LLM alone):
+   [X] CLOSED-BOOK (LLM alone):
    "Tell me about our company policy on vacation days"
-   → Might guess or hallucinate
+   -> Might guess or hallucinate
 
-   ✅ OPEN-BOOK (RAG):
+   [OK] OPEN-BOOK (RAG):
    "Using THIS document, tell me about vacation days"
-   → References actual document
+   -> References actual document
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+--------------------------------------------------------------------------------
 
    REAL-WORLD EXAMPLES:
-   - Chat with your PDF (upload document → ask questions)
+   - Chat with your PDF (upload document -> ask questions)
    - Company FAQ bot (uses your internal docs)
    - Legal research (search through 1000s of contracts)
    - Product support (uses your knowledge base)
@@ -41,23 +41,23 @@ print("  WHY DO WE NEED RAG?")
 print("=" * 60)
 
 print("""
-   🔴 LLM LIMITATIONS:
+   [RED] LLM LIMITATIONS:
 
-   1️⃣ KNOWLEDGE CUTOFF
+   1. KNOWLEDGE CUTOFF
       LLMs only know things up to their training date
       GPT-4: trained up to April 2023
       It doesn't know today's news!
 
-   2️⃣ HALLUCINATION
+   2. HALLUCINATION
       LLMs sometimes make things up confidently
       "I'm 99% sure the capital of France is... London"
       (It's Paris!)
 
-   3️⃣ NO ACCESS TO PRIVATE DATA
+   3. NO ACCESS TO PRIVATE DATA
       Your company docs, personal files
       LLMs can't read your hard drive
 
-   ✅ RAG SOLVES ALL OF THESE!
+   [OK] RAG SOLVES ALL OF THESE!
 """)
 
 # ==============================================================================
@@ -69,34 +69,39 @@ print("  HOW RAG WORKS")
 print("=" * 60)
 
 print("""
-   📄 THE RAG PIPELINE:
+   [PAGE] THE RAG PIPELINE:
 
-   ┌─────────────────────────────────────────────┐
-   │           AT REQUEST TIME                   │
-   └─────────────────────────────────────────────┘
+   +---------------------------------------------+
+   |           AT REQUEST TIME                   |
+   +---------------------------------------------+
    User Query: "What is our refund policy?"
 
-   ┌──────────────┐
-   │  1. RETRIEVE │
-   └──────┬───────┘
-          ↓
+   +---------------+
+   |  1. RETRIEVE  |
+   +-------+-------+
+           |
+           v
    Search document database for relevant info
    Found: "Refunds available within 30 days..."
-          ↓
-   ┌──────────────┐
-   │  2. AUGMENT  │
-   └──────┬───────┘
-          ↓
+           |
+           v
+   +--------------+
+   |  2. AUGMENT  |
+   +------+-------+
+           |
+           v
    Add retrieved info to the prompt
    "Based on this policy: [retrieved text]
     Answer: What is our refund policy?"
-          ↓
-   ┌──────────────┐
-   │  3. GENERATE │
-   └──────┬───────┘
-          ↓
+           |
+           v
+   +---------------+
+   |  3. GENERATE  |
+   +-------+-------+
+           |
+           v
    LLM generates answer using the provided context
-   → Grounded, accurate, based on real documents!
+   -> Grounded, accurate, based on real documents!
 """)
 
 # ==============================================================================
@@ -107,7 +112,7 @@ import numpy as np
 
 def simple_rag_demo():
     """Simple RAG example without external libraries."""
-    print("\n🚀 SIMPLE RAG IMPLEMENTATION")
+    print("\n[RUN] SIMPLE RAG IMPLEMENTATION")
     print("-" * 40)
 
     # 1. DOCUMENTS (your knowledge base)
@@ -119,14 +124,14 @@ def simple_rag_demo():
         "Products come with a 1-year manufacturer warranty."
     ]
 
-    print("📄 Document Database:")
+    print("[PAGE] Document Database:")
     for i, doc in enumerate(documents):
         print(f"   [{i}] {doc}")
 
     # 2. SIMPLE QUERY (user question)
     query = "What is the return policy?"
 
-    print(f"\n❓ User Query: '{query}'")
+    print(f"\n[?] User Query: '{query}'")
 
     # 3. RETRIEVAL (simple keyword matching)
     # Count keyword matches
@@ -144,7 +149,7 @@ def simple_rag_demo():
     best_idx = np.argmax(scores)
     best_doc = documents[best_idx]
 
-    print(f"\n🔍 Retrieval: Found document [{best_idx}]")
+    print(f"\n[LOOK] Retrieval: Found document [{best_idx}]")
     print(f"   Score: {scores[best_idx]} keyword matches")
     print(f"   Content: '{best_doc}'")
 
@@ -157,14 +162,14 @@ Question: {query}
 
 Answer:"""
 
-    print(f"\n📝 Augmented Prompt (sent to LLM):")
+    print(f"\n[NOTE] Augmented Prompt (sent to LLM):")
     print(f"   [Document context included]")
     print(f"   Question: '{query}'")
 
     # In real implementation, you'd send this to an LLM
     # response = llm.generate(prompt)
 
-    print("\n✅ RAG provides relevant context → Better answers!")
+    print("\n[OK] RAG provides relevant context -> Better answers!")
 
 simple_rag_demo()
 
@@ -177,25 +182,25 @@ print("  VECTOR SEARCH (The Secret Sauce)")
 print("=" * 60)
 
 print("""
-   🔢 WHY TEXT SEARCH ISN'T ENOUGH:
+   [NUM] WHY TEXT SEARCH ISN'T ENOUGH:
 
    Query: "How do I return items?"
    Doc: "Our refund policy allows returns within 30 days..."
 
-   Simple search: "return" matches "returns" ✓
+   Simple search: "return" matches "returns" [OK]
    But what about:
-   - "How to get money back?" → no exact match
-   - "Can I exchange products?" → different words
+   - "How to get money back?" -> no exact match
+   - "Can I exchange products?" -> different words
 
-   💡 VECTOR SEARCH TO THE RESCUE!
+   [TIP] VECTOR SEARCH TO THE RESCUE!
 
    Convert text to VECTORS (numbers)
-   Similar meaning → similar vectors!
+   Similar meaning -> similar vectors!
 """)
 
 def vector_search_demo():
     """Demonstrate semantic search with vectors."""
-    print("\n🧮 VECTOR SEARCH EXAMPLE")
+    print("\n[CALC] VECTOR SEARCH EXAMPLE")
 
     # Simple word vectors (embedding simulation)
     # Real systems use 768-4096 dimensions!
@@ -230,7 +235,7 @@ def vector_search_demo():
     for word, sim in sorted(similarities.items(), key=lambda x: -x[1]):
         print(f"   '{word}': {sim:.3f}")
 
-    print("\n✅ 'refund' and 'return' have HIGH similarity to 'money back'!")
+    print("\n[OK] 'refund' and 'return' have HIGH similarity to 'money back'!")
 
 vector_search_demo()
 
@@ -243,24 +248,25 @@ print("  RAG IN PRACTICE")
 print("=" * 60)
 
 print("""
-   🏗️  RAG ARCHITECTURE:
+   [BUILD] RAG ARCHITECTURE:
 
    INDEXING (Once):
-   ┌─────────┐     ┌───────────┐     ┌────────────┐
-   │ Docs    │ ──→ │  Chunk    │ ──→ │  Embed    │
-   │ (.pdf)  │     │ (split)   │     │ (vector)  │
-   └─────────┘     └───────────┘     └─────┬──────┘
-                                           ↓
-                                     ┌────────────┐
-                                     │ Vector DB │
-                                     │ (storage) │
-                                     └────────────┘
+   +---------+     +-----------+     +------------+
+   | Docs    | --> |  Chunk    | --> |  Embed     |
+   | (.pdf)  |     | (split)   |     | (vector)   |
+   +---------+     +-----------+     +-----+------+
+                                           |
+                                           v
+                                     +------------+
+                                     | Vector DB  |
+                                     | (storage)  |
+                                     +------------+
 
    QUERY (Every question):
-   ┌─────────┐     ┌───────────┐     ┌────────────┐     ┌───────┐
-   │ Query   │ ──→ │  Embed    │ ──→ │   Search   │ ──→ │ LLM   │
-   │         │     │ (vector)  │     │  (retrieve)│     │ Generate│
-   └─────────┘     └───────────┘     └────────────┘     └───────┘
+   +---------+     +-----------+     +------------+     +-------+
+   | Query   | --> |  Embed    | --> |   Search   | --> | LLM   |
+   |         |     | (vector)  |     |  (retrieve)|     | Generate|
+   +---------+     +-----------+     +------------+     +-------+
 """)
 
 # ==============================================================================
@@ -271,15 +277,15 @@ print("\n" + "=" * 60)
 print("  KEY TAKEAWAYS")
 print("=" * 60)
 print("""
-✅ RAG = Give LLM knowledge from your documents
+[OK] RAG = Give LLM knowledge from your documents
 
-✅ Solves: knowledge cutoff, hallucination, private data
+[OK] Solves: knowledge cutoff, hallucination, private data
 
-✅ Steps: Retrieve → Augment → Generate
+[OK] Steps: Retrieve -> Augment -> Generate
 
-✅ Better retrieval = Vector embeddings + similarity search
+[OK] Better retrieval = Vector embeddings + similarity search
 
-✅ Use cases: Chatbots, document Q&A, research, support
+[OK] Use cases: Chatbots, document Q&A, research, support
 
 NEXT: Build a real RAG pipeline with code!
 """)
